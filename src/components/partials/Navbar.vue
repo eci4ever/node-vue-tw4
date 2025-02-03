@@ -2,7 +2,7 @@
   <header class="bg-sky-100 shadow-sm px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
     <div class="flex items-center space-x-4">
-      <button
+      <button v-if="!isLandingPage"
         @click="toggleSidebar"
         class="text-gray-600 hover:text-gray-900 focus:outline-none"
       >
@@ -19,11 +19,11 @@
           />
         </svg>
       </button>
-      <h1 class="text-lg  text-gray-800">Admin Panel</h1>
+      <h1 class="text-lg  text-gray-800">Sistem Pengurusan Pengguna</h1>
     </div>
 
     <!-- User Profile Dropdown -->
-    <div class="relative">
+    <div class="relative" v-if="!isLandingPage">
       <button
         @click="toggleDropdown"
         class="flex items-center space-x-2 focus:outline-none"
@@ -71,16 +71,28 @@
         </ul>
       </div>
     </div>
+    <div v-else>
+      <button
+        @click="login"
+        class="w-full text-left px-4 py-2 hover:bg-gray-200 text-slate-700"
+      >
+        Login
+      </button>
+
+    </div>
   </header>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
 import { useRouter } from 'vue-router';
 
 const authStore = useAuthStore();
 const router = useRouter();
+
+const isLandingPage = ref(false);
 
 // State untuk dropdown
 const isDropdownOpen = ref(false);
@@ -96,6 +108,11 @@ function logout() {
   router.push('/');
 }
 
+// Login function
+function login() {
+  router.push('/dashboard');
+}
+
 // Nama pengguna
 const user = authStore.user || 'Guest';
 
@@ -104,4 +121,13 @@ const emit = defineEmits(['toggle-sidebar']);
 function toggleSidebar() {
   emit('toggle-sidebar');
 }
+
+const route = useRoute();
+watch(
+  () => route.path,
+  (newPath) => {
+    isLandingPage.value = newPath === '/';
+  },
+  { immediate: true } // Trigger immediately on component mount
+);
 </script>
