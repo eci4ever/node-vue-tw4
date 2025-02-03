@@ -10,7 +10,7 @@ const router = useRouter();
 const menuItems = [
   {
     label: 'Dashboard',
-    path: '/',
+    path: '/dashboard',
     icon: HomeIcon, // Gunakan komponen ikon
   },
   {
@@ -34,7 +34,7 @@ function logout() {
 
 <template>
   <aside
-    class="fixed top-0 left-0 w-52 h-screen bg-slate-700 text-white flex flex-col justify-between transition-transform duration-200 ease-in-out z-20"
+    class="fixed top-0 left-0 w-60 h-screen bg-slate-600 text-white flex flex-col justify-between transition-transform duration-200 ease-in-out z-20"
     :class="{ 'translate-x-0': !isHidden, '-translate-x-full': isHidden }"
   >
     <!-- Logo Section -->
