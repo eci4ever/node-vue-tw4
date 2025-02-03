@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50 font-poppins">
     <!-- Hero Section -->
-    <section class="bg-blue-600 text-white py-20">
+    <section class="bg-blue-400 text-white py-20">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to AdminPro</h1>
         <p class="text-lg md:text-xl mb-8">
@@ -100,7 +100,7 @@
         </p>
         <button
           @click="navigateToLogin"
-          class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          class="px-6 py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors"
         >
           Sign In
         </button>
@@ -108,7 +108,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-500 text-white py-8">
       <div class="container mx-auto px-4 text-center">
         <p>&copy; 2023 AdminPro. All rights reserved.</p>
       </div>
