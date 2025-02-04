@@ -19,7 +19,12 @@
           />
         </svg>
       </button>
-      <h1 class="text-lg  text-gray-800">Sistem Pengurusan Pengguna</h1>
+      <router-link to="/"><img
+          src="@/assets/logo.svg"
+          alt="Logo"
+          class="h-8 w-auto"
+        /></router-link>
+      <h1 class="text-lg  text-gray-800 font-semibold">Sistem Pengurusan Pengguna</h1>
     </div>
 
     <!-- User Profile Dropdown -->
@@ -72,13 +77,12 @@
       </div>
     </div>
     <div v-else>
-      <button
-        @click="login"
-        class="w-full text-left px-4 py-2 hover:bg-gray-200 text-slate-700"
-      >
-        Login
-      </button>
-
+      <div>
+          <!-- Button dengan hyperlink -->
+          <router-link to="/login" class="inline-block px-6 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
+            Login
+          </router-link>
+        </div>
     </div>
   </header>
 </template>
@@ -126,7 +130,7 @@ const route = useRoute();
 watch(
   () => route.path,
   (newPath) => {
-    isLandingPage.value = newPath === '/';
+    isLandingPage.value = ['/', '/login', '/register'].includes(newPath);
   },
   { immediate: true } // Trigger immediately on component mount
 );
