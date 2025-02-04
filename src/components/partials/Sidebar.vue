@@ -25,32 +25,26 @@ const menuItems = [
   },
 ];
 
-// Logout function
-function logout() {
-  authStore.logout();
-  router.push('/');
-}
 </script>
 
 <template>
   <aside
     class="fixed top-0 left-0 w-60 h-screen bg-slate-600 text-white flex flex-col justify-between transition-transform duration-200 ease-in-out z-20"
-    :class="{ 'translate-x-0': !isHidden, '-translate-x-full': isHidden }"
   >
     <!-- Logo Section -->
     <div class="p-4">
       <div class="flex items-center space-x-2">
-        <img
+        <!-- <img
           src="@/assets/logo.svg"
           alt="Logo"
           class="h-8 w-auto"
-        />
-        <h1 class="text-lg font-semibold">SPMP</h1>
+        /> -->
+        <h1 class="text-lg font-semibold pt-2">Menu Pengguna</h1>
       </div>
     </div>
 
     <!-- Navigation Links -->
-    <nav class="flex-1 overflow-y-auto mt-6">
+    <nav class="flex-1 overflow-y-auto mt-4">
       <ul>
         <li v-for="(item, index) in menuItems" :key="index" class="mb-1">
           <router-link
