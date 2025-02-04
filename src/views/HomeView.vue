@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen bg-gray-50 font-poppins">
+  <div class="min-h-[80vh] bg-gray-50 font-poppins">
     <!-- Hero Section -->
     <section class="bg-blue-400 text-white py-20">
       <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to AdminPro</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome</h1>
         <p class="text-lg md:text-xl mb-8">
           The ultimate admin dashboard for managing users, analytics, and more.
         </p>
@@ -98,19 +98,23 @@
         <p class="text-gray-600 mb-8">
           Join thousands of businesses already using AdminPro to streamline their operations.
         </p>
-        <button
-          @click="navigateToLogin"
-          class="px-6 py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors"
-        >
-          Sign In
-        </button>
+        <div>
+          <!-- Button dengan hyperlink -->
+          <a
+            href="#"
+            rel="noopener noreferrer"
+            class="inline-block px-8 py-4 text-sm font-medium text-white bg-blue-500 rounded-md shadow-sm cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300"
+          >
+            Log Masuk
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-500 text-white py-8">
+    <footer class="bg-gray-500 text-white py-4">
       <div class="container mx-auto px-4 text-center">
-        <p>&copy; 2023 AdminPro. All rights reserved.</p>
+        <p>&copy; 2025 Hakcipta Terpelihara, MCP Adtec Kulim.</p>
       </div>
     </footer>
   </div>
