@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen bg-gray-100">
+  <div class="flex min-h-screen bg-slate-100">
     <!-- Sidebar -->
     <Sidebar
       v-if="!isSidebarHidden && !isLandingPage"
@@ -14,7 +14,7 @@
       <!-- Navbar -->
       <Navbar @toggle-sidebar="toggleSidebar" :showToggle="!isLandingPage" />
       <!-- Page Content -->
-      <main class="flex-1 overflow-x-hidden overflow-y-auto bg-white p-6">
+      <main class="flex-1 overflow-x-hidden overflow-y-auto bg-slate-100 p-6">
         <RouterView />
       </main>
     </div>
