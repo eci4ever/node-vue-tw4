@@ -7,6 +7,7 @@ import Users from '@/components/users/Users.vue'
 import Settings from '@/components/users/Settings.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
+import ProductsView from '@/views/ProductsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/settings',
       name: 'settings',
       component: Settings,
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: ProductsView,
     },
     {
       path: '/about',
