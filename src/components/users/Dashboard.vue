@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen bg-gray-100 font-poppins">
+  <div class="min-h-[80vh] bg-gray-100">
 
     <!-- Main Content -->
-    <main class="p-6">
+    <main>
       <!-- Statistics Section -->
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <StatCard title="Total Users" value="1,234" color="blue" />
         <StatCard title="Active Sessions" value="567" color="green" />
         <StatCard title="Pending Tasks" value="89" color="yellow" />
