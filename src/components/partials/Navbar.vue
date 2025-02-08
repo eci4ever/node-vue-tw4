@@ -56,6 +56,7 @@
       <!-- Dropdown Menu -->
       <div
         v-if="isDropdownOpen"
+        ref="dropdownRef"
         class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg overflow-hidden z-10"
       >
         <ul class="py-2 text-gray-700">
@@ -88,7 +89,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
 import { useRouter } from 'vue-router';
@@ -97,13 +98,26 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 const isLandingPage = ref(false);
-
+const dropdownRef = ref(null);
 // State untuk dropdown
 const isDropdownOpen = ref(false);
 
 // Toggle dropdown
 function toggleDropdown() {
   isDropdownOpen.value = !isDropdownOpen.value;
+  if (isDropdownOpen.value) {
+    setTimeout(() => {
+      document.addEventListener('click', handleClickOutside);
+    }, 0);
+  }
+}
+
+// Handle klik di luar dropdown
+function handleClickOutside(event) {
+  if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
+    isDropdownOpen.value = false;
+    document.removeEventListener('click', handleClickOutside);
+  }
 }
 
 // Logout function
@@ -134,4 +148,9 @@ watch(
   },
   { immediate: true } // Trigger immediately on component mount
 );
+
+// Cleanup event listener
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
 </script>
