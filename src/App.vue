@@ -43,7 +43,7 @@ const route = useRoute();
 watch(
   () => route.path,
   (newPath) => {
-    isLandingPage.value = newPath === '/';
+    isLandingPage.value = ['/', '/login', '/register'].includes(newPath);
   },
   { immediate: true } // Trigger immediately on component mount
 );
